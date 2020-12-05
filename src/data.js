@@ -1,4 +1,3 @@
-import {printStatistic} from './main.js';
 export const sortByAlphabeticOrder = (data, condition) => {
   let charactersOder = "";
   if (condition === "az") {
@@ -13,45 +12,31 @@ export const sortByAlphabeticOrder = (data, condition) => {
       if (a.name.toUpperCase() < b.name.toUpperCase()) return 1;
       return 0;
     })
-  };
+  }
   return charactersOder;
 };
 export const searchByLocation = (data, condition) => {
   const filterLocation = data.filter((item) => ((item.location.name).toUpperCase()).includes(`${condition}`));
   return filterLocation;
 };
-export const filterByGender = (data, condition) => {
-  const characters = data;
-  const category = condition;
-  const filterResult = data.filter((item) => item.gender === condition);
-  statisticData(characters, filterResult, category);
+export const filterByGender = (dataBase, condition) => {
+  const filterResult = dataBase.filter((item) => item.gender === condition);
   return filterResult;
 };
-export const filterByStatus = (condition) => {
-  const category = condition;
-  const filterResult = characters.filter((item) => item.status === condition);
-  createCards(filterResult);
-  statisticData(filterResult, category);
+export const filterByStatus = (dataBase, condition) => {
+  const filterResult = dataBase.filter((item) => item.status === condition);
+  return filterResult;
 };
-export const filterBySpecies = (condition) => {
-  const category = condition;
-  const filterResult = characters.filter((item) => item.species === condition);
-  createCards(filterResult);
-  statisticData(filterResult, category);
+export const filterBySpecies = (dataBase, condition) => {
+  const originalArray = dataBase;
+  const filterResult = dataBase.filter((item) => item.species === condition);
+  statisticData(originalArray, filterResult);
+  return filterResult;
 };
-export const statisticData = (dataBase, data, condition) => {
-  const category = condition;
+export const statisticData = (dataBase, data) => {
   const percentage = Math.round((data.length * 100) / dataBase.length);
-  printStatistic (percentage, category);
+  return percentage;
 };
-
-
-
-
-
-
-
-
 
 
 
