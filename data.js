@@ -16,7 +16,7 @@ export const sortByAlphabeticOrder = (data, condition) => {
   return charactersOder;
 };
 export const searchByLocation = (data, condition) => {
-  const filterLocation = data.filter((item) => ((item.location.name).toUpperCase()).includes(`${condition}`));
+  const filterLocation = data.filter((item) => ((item.location.name).toUpperCase()).includes(condition.toUpperCase()));
   return filterLocation;
 };
 export const filterByGender = (dataBase, condition) => {

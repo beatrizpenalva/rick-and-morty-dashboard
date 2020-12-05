@@ -185,7 +185,7 @@ function getSort() {
   createCards(resultOrder);
 }
 function getSearch() {
-  const searchOption = document.getElementById("search").value.toUpperCase();
+  const searchOption = document.getElementById("search").value;
   const resultSearch = searchByLocation(characters, searchOption);
   createCards(resultSearch);
 }
