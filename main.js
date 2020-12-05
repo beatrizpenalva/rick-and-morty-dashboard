@@ -1,4 +1,4 @@
-import {sortByAlphabeticOrder, searchByLocation, filterByGender, filterByStatus, filterBySpecies} from './data.js';
+import {sortByAlphabeticOrder, searchByLocation, filterByGender, filterByStatus, filterBySpecies, statisticData} from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 const characters = data.results;
 const episodesList = [
@@ -128,6 +128,7 @@ const episodesList = [
   },
 ];
 function createCards(data) {
+  document.getElementById("results").innerHTML = "";
   let printCards = "";
   for (let item of data) {
     let firstEpisode = (item.episode[0]).substr(40, 39);
@@ -163,7 +164,7 @@ function createCards(data) {
       </div>`
   }
   document.getElementById("cardArea").innerHTML = printCards;
-};
+}
 createCards(characters);
 document.getElementById("order").addEventListener("change", getSort);
 document.getElementById("enter").addEventListener("click", getSearch);
@@ -174,29 +175,36 @@ function getSort() {
   const orderOption = document.getElementById("order").value;
   const resultOrder = sortByAlphabeticOrder(characters, orderOption);
   createCards(resultOrder);
-};
+}
 function getSearch() {
   const searchOption = document.getElementById("search").value.toUpperCase();
   const resultSearch = searchByLocation(characters, searchOption);
   createCards(resultSearch);
-};
+}
 function getGender() {
   const gender = document.getElementById("gender").value;
   const resultFilter = filterByGender(characters, gender);
-  createCards (resultFilter);
-};
+  const percentage = statisticData(characters, resultFilter);
+  createCards(resultFilter);
+  printStatistic (percentage, gender);
+}
 function getStatus() {
   const status = document.getElementById("status").value;
-  filterByStatus(status);
-};
+  const resultFilter = filterByStatus(characters, status);
+  const percentage = statisticData(characters, resultFilter);
+  createCards(resultFilter);
+  printStatistic (percentage, status);
+}
 function getSpecies() {
   const species = document.getElementById("species").value;
-  filterBySpecies(species);
-};
-export const printStatistic = (result, filter) => {
-  document.getElementById("results").innerHTML = "";
+  const resultFilter = filterBySpecies(characters, species);
+  const percentage = statisticData(characters, resultFilter);
+  createCards(resultFilter);
+  printStatistic (percentage, species);
+}
+function printStatistic(result, filter) {
   const results = document.createElement("p");
   const content = document.createTextNode(`${result}% of the characters are ${filter.toLowerCase()}`);
   results.appendChild(content);
   document.getElementById("results").appendChild(results);
-};
+}
