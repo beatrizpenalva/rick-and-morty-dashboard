@@ -6,26 +6,33 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="./img/icon-tab.png/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <header>
     <section id="logo">
-      <img src="./img/logo.png" width="80px" height="80px">
+     <!-- <img src="./img/logo.png" width="80px" height="80px"> -->
       <img src="./img/logo-name.png" width="270px" height="115px">
+    </section>
+    <section id="search">
+      <input type="text" id="search" placeholder="Search by location">
     </section>
   </header>
   <main id="root">
     <section class="filters">
       <select class="select" id="order" label="Order">
+        <option selected disabled>Order</option>
         <option value="az">A-Z</option>
         <option value="za">Z-A</option>
       </select>
       <select class="select" id="status" label="Status">
+        <option selected disabled>Status</option>
         <option value="Alive">Alive</option>
         <option value="Dead">Dead</option>
         <option value="Unknown">Unknown</option>
       </select>
       <select class="select" id="species" label="Species">
+        <option selected disabled>Species</option>
         <option value="Human">Human</option>
         <option value="Humanoid">Humanoid</option>
         <option value="Alien">Alien</option>
@@ -36,14 +43,13 @@
         <option value="Unknown">Unknown</option>
       </select>
       <select class="select" id="gender" label="Gender">
+        <option selected disabled>Gender</option>
         <option value="Female">Female</option>
         <option value="Male">Male</option>
         <option value="Unknown">Unknown</option>
       </select>
-      <input type="text" id="search" placeholder="Search by location">
-      <button class="button" id="enter">search</button>
-    </section>
-    <section id="results"></section>
+    </section> 
+    <section id="results" class="results"></section> 
     <section class="cardArea" id="cardArea"></section>
   </main>
   <footer>Developed by <a href="https://github.com/beatrizpenalva" target="blank" title="GITHUB PROFILE">

@@ -167,7 +167,7 @@ function createCards(data) {
 }
 createCards(characters);
 document.getElementById("order").addEventListener("change", getSort);
-document.getElementById("enter").addEventListener("click", getSearch);
+document.getElementById("search").addEventListener("keypress", getSearch);
 document.getElementById("gender").addEventListener("change", getGender);
 document.getElementById("status").addEventListener("change", getStatus);
 document.getElementById("species").addEventListener("change", getSpecies);
