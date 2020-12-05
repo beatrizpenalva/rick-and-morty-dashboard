@@ -66,7 +66,7 @@ describe('filter functions', () => {
     }); 
 
     it('if I insert characters and Female should return only Female characters', () => {
-      expect(filterByStatus(results, "Female")).toStrictEqual(results[2]);
+      expect(filterByStatus(results, "Female")).toBe(results[2]);
     });   
   });    
 describe('percentage of filtered characters', () => {

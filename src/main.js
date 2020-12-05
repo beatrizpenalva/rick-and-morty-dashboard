@@ -141,23 +141,31 @@ function createCards(data) {
             <div class="text">
                 <h3 class="name">${item.name}</h3>
                 <h4 class="subtitle"> First time seen: </h4>
-                  <p class="data" id="episode">${episodesList[episodeIndex].name}</p>
-                  <p class="data" id="episode">${episodesList[episodeIndex].episode}</p>
+                  <p class="dataEpisode"> ${episodesList[episodeIndex].episode} <strong>-</strong> ${episodesList[episodeIndex].name}</p>
             </div>
           </div>
           <div class="cardBack">
             <div class="textBack">
               <h3 class="name">${item.name}</h3>
-              <br><h4 class="subtitle"> Species: </h4>
-              <p class="data" id="species">${item.species}</p></br>
-              <br><h4 class="subtitle"> Gender: </h4>
-              <p class="data" id="gender">${item.gender}</p></br>
-              <br><h4 class="subtitle"> Origin: </h4>
-              <p class="data" id="origin">${item.origin.name}</p></br>
-              <br><h4 class="subtitle"> Location: </h4>
-              <p class="data" id="location">${item.location.name}</p></br>
-              <br><h4 class="subtitle"> Status: </h4>
-              <p class="data" id="status">${item.status}</p></br>
+              <br>
+                <h4 class="subtitle"> Species: </h4>
+                  <p class="data" id="species">${item.species}</p>
+              </br>
+              <br>
+                <h4 class="subtitle"> Gender: </h4>
+                <p class="data" id="gender">${item.gender}</p>
+              </br>
+              <br>
+                <h4 class="subtitle"> Origin: </h4>
+                  <p class="data" id="origin">${item.origin.name}</p>
+              </br>
+              <br>
+                <h4 class="subtitle"> Location: </h4>
+                  <p class="data" id="location">${item.location.name}</p></br>
+              <br>
+                <h4 class="subtitle"> Status: </h4>
+                  <p class="data" id="status">${item.status}</p>
+              </br>
             </div>  
           </div>        
         </div>

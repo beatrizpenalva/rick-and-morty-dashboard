@@ -132,7 +132,7 @@ label{
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
-    line-height: 10px;
+    line-height: 12px;
     background-color:rgba(238, 243, 243, 0.1);
     border-radius: 35px;
     height: 100%;
@@ -151,6 +151,11 @@ label{
 }
 .data{
     font-size: 15px;
+    font-weight: normal;
+    color: #EEF3F3;
+}
+.dataEpisode{
+    font-size: 14px;
     font-weight: normal;
     color: #EEF3F3;
 }
