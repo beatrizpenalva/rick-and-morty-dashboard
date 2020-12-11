@@ -1,132 +1,14 @@
-import {sortByAlphabeticOrder, searchByLocation, filterByGender, filterByStatus, filterBySpecies, statisticData} from './data.js';
+import {sortByAlphabeticOrder, searchByLocation, statisticData, filterData} from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
+import dataEpisode from './data/rickandmorty/rickandmortyepisodes.js';
 const characters = data.results;
-const episodesList = [
-  {
-    "name": "Pilot",
-    "episode": "S01E01"
-  },
-  {
-    "name": "Lawnmower Dog",
-    "episode": "S01E02",
-  },
-  {
-    "name": "Anatomy Park",
-    "episode": "S01E03",
-  },
-  {
-    "name": "M. Night Shaym-Aliens",
-    "episode": "S01E04",
-  },
-  {
-    "name": "Meeseeks and Destroy",
-    "episode": "S01E05",
-  },
-  {
-    "name": "Rick Potion #9",
-    "episode": "S01E06",
-  },
-  {
-    "name": "Raising Gazorpazorp",
-    "episode": "S01E07",
-  },
-  {
-    "name": "Rixty Minutes",
-    "episode": "S01E08",
-  },
-  {
-    "name": "Something Ricked This Way Comes",
-    "episode": "S01E09",
-  },
-  {
-    "name": "Close Rick-counters of the Rick Kind",
-    "episode": "S01E10",
-  },
-  {
-    "name": "Ricksy Business",
-    "episode": "S01E11",
-  },
-  {
-    "name": "A Rickle in Time",
-    "episode": "S02E01"
-  },
-  {
-    "name": "Mortynight Run",
-    "episode": "S02E02",
-  },
-  {
-    "name": "Auto Erotic Assimilation",
-    "episode": "S02E03",
-  },
-  {
-    "name": "Total Rickall",
-    "episode": "S02E04",
-  },
-  {
-    "name": "Get Schwiftyy",
-    "episode": "S02E05",
-  },
-  {
-    "name": "The Ricks Must Be Crazy",
-    "episode": "S02E06",
-  },
-  {
-    "name": "Big Trouble in Little Sanchez",
-    "episode": "S02E07",
-  },
-  {
-    "name": "Interdimensional Cable 2: Tempting Fatea",
-    "episode": "S02E08",
-  },
-  {
-    "name": "Look Who's Purging Now",
-    "episode": "S02E09",
-  },
-  {
-    "name": "The Wedding Squanchers",
-    "episode": "S02E10",
-  },
-  {
-    "name": "The Rickshank Rickdemptio",
-    "episode": "S03E01"
-  },
-  {
-    "name": "Rickmancing the Stone",
-    "episode": "S03E02",
-  },
-  {
-    "name": "Pickle Rick",
-    "episode": "S03E03",
-  },
-  {
-    "name": "Vindicators 3: The Return of Worldender",
-    "episode": "S03E04",
-  },
-  {
-    "name": "The Whirly Dirly Conspiracy",
-    "episode": "S03E05",
-  },
-  {
-    "name": "Rest and Ricklaxation",
-    "episode": "S03E06",
-  },
-  {
-    "name": "The Ricklantis Mixup",
-    "episode": "S03E07",
-  },
-  {
-    "name": "Morty's Mind Blowers",
-    "episode": "S03E08",
-  },
-  {
-    "name": "The ABC's of Beth",
-    "episode": "S03E09",
-  },
-  {
-    "name": "The Rickchurian Mortydate",
-    "episode": "S03E10",
-  },
-];
+const getEpisodes = dataEpisode.episodesList;
+window.onload = createCards(characters);
+document.getElementById("order").addEventListener("change", getSort);
+document.getElementById("search").addEventListener("keypress", getSearch);
+document.getElementById("gender").addEventListener("change", getGender);
+document.getElementById("status").addEventListener("change", getStatus);
+document.getElementById("species").addEventListener("change", getSpecies);
 function createCards(data) {
   document.getElementById("results").innerHTML = "";
   let printCards = "";
@@ -141,7 +23,7 @@ function createCards(data) {
             <div class="text">
                 <h3 class="name">${item.name}</h3>
                 <h4 class="subtitle"> First time seen: </h4>
-                  <p class="dataEpisode"> ${episodesList[episodeIndex].episode} <strong>-</strong> ${episodesList[episodeIndex].name}</p>
+                  <p class="dataEpisode"> ${getEpisodes[episodeIndex].episode} - ${getEpisodes[episodeIndex].name}</p>
             </div>
           </div>
           <div class="cardBack">
@@ -173,12 +55,6 @@ function createCards(data) {
   }
   document.getElementById("cardArea").innerHTML = printCards;
 }
-createCards(characters);
-document.getElementById("order").addEventListener("change", getSort);
-document.getElementById("search").addEventListener("keypress", getSearch);
-document.getElementById("gender").addEventListener("change", getGender);
-document.getElementById("status").addEventListener("change", getStatus);
-document.getElementById("species").addEventListener("change", getSpecies);
 function getSort() {
   const orderOption = document.getElementById("order").value;
   const resultOrder = sortByAlphabeticOrder(characters, orderOption);
@@ -191,21 +67,21 @@ function getSearch() {
 }
 function getGender() {
   const gender = document.getElementById("gender").value;
-  const resultFilter = filterByGender(characters, gender);
+  const resultFilter = filterData(characters, "gender", gender);
   const percentage = statisticData(characters, resultFilter);
   createCards(resultFilter);
   printStatistic (percentage, gender);
 }
 function getStatus() {
   const status = document.getElementById("status").value;
-  const resultFilter = filterByStatus(characters, status);
+  const resultFilter = filterData(characters, "status", status);
   const percentage = statisticData(characters, resultFilter);
   createCards(resultFilter);
   printStatistic (percentage, status);
 }
 function getSpecies() {
   const species = document.getElementById("species").value;
-  const resultFilter = filterBySpecies(characters, species);
+  const resultFilter = filterData(characters, "species", species);
   const percentage = statisticData(characters, resultFilter);
   createCards(resultFilter);
   printStatistic (percentage, species);

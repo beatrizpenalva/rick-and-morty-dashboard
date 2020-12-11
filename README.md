@@ -125,6 +125,3 @@ The interface was conceived to be responsive since our users use more than one d
 ## Acknowledgments and Credits
 * [Laboratoria](https://www.laboratoria.la/)
 * [Rick and Morty API](https://rickandmortyapi.com/)
-
-## Authors
-* Beatriz Penalva | [@beatrizpenalva](https://github.com/beatrizpenalva) 
