@@ -82,10 +82,14 @@ function getAllFilters() {
   filterResult = searchByName(filterResult, searchOption.value);
   filterResult = sortCharacters(filterResult, selectSort.value);
 
-  const percentage = statisticData(characters, filterResult);
-
-  createCards(filterResult);
-  printStatistic(percentage);
+  if(!filterResult) {
+    statisticInfo.innerHTML = "Sorry, there is no character with these characteristics. Please, try with other filters.";
+  }
+  else {
+    const percentage = statisticData(characters, filterResult);
+    createCards(filterResult);
+    printStatistic(percentage);
+  }
 }
 
 function printStatistic(result) {
