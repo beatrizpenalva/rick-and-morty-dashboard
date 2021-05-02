@@ -1,5 +1,5 @@
 import {
-  sortByAlphabeticOrder,
+  sortCharacters,
   searchByLocation,
   statisticData,
   filterData,
@@ -44,25 +44,24 @@ function createCards(data) {
           <div class="cardBack">
             <div class="textBack">
               <h3 class="name">${item.name}</h3>
-              <br>
-                <h4 class="subtitle"> Species: </h4>
-                  <p class="data" id="species">${item.species}</p>
-              </br>
-              <br>
-                <h4 class="subtitle"> Gender: </h4>
-                <p class="data" id="gender">${item.gender}</p>
-              </br>
-              <br>
-                <h4 class="subtitle"> Origin: </h4>
-                  <p class="data" id="origin">${item.origin.name}</p>
-              </br>
-              <br>
-                <h4 class="subtitle"> Location: </h4>
-                  <p class="data" id="location">${item.location.name}</p></br>
-              <br>
-                <h4 class="subtitle"> Status: </h4>
-                  <p class="data" id="status">${item.status}</p>
-              </br>
+              
+              <h4 class="subtitle"> Species: </h4>
+              <p class="data" id="species">${item.species}</p>
+              
+              <h4 class="subtitle"> Gender: </h4>
+              <p class="data" id="gender">${item.gender}</p>
+
+              <h4 class="subtitle"> Origin: </h4>
+              <p class="data" id="origin">${item.origin.name}</p>
+                
+              <h4 class="subtitle"> Location: </h4>
+              <p class="data" id="location">${item.location.name}</p></br>
+                
+              <h4 class="subtitle"> Status: </h4>
+              <p class="data" id="status">${item.status}</p>
+                
+              <h4 class="subtitle"> Appears in: </h4>
+              <p class="data" id="status">${item.episode.length} episodes</p>
             </div>  
           </div>        
         </div>
@@ -73,15 +72,16 @@ function createCards(data) {
 }
 
 function getAllFilters() {
-  const filterByGender = selectGender.value !== "Gender" ? filterData(characters, "gender", selectGender.value) : characters;
-  const filterByStatus = selectStatus.value !== "Status" ? filterData(filterByGender, "status", selectStatus.value) : filterByGender;
-  const filterBySpecies = selectSpecies.value !== "Species" ? filterData(filterByStatus, "species", selectSpecies.value) : filterByStatus;
+  let filterResult = characters;
+  filterResult = filterData(filterResult, "gender", selectGender.value);
+  filterResult = filterData(filterResult, "status", selectStatus.value);
+  filterResult = filterData(filterResult, "species", selectSpecies.value);
+  filterResult = searchByLocation(filterResult, searchOption.value);
+  filterResult =  sortCharacters(filterResult, selectSort.value);
 
-  const filterResult = searchOption.value ? searchByLocation(filterBySpecies, searchOption.value) : filterBySpecies
-  const filterResultOrdered = sortByAlphabeticOrder(filterResult, selectSort.value);
-  const percentage = statisticData(characters, filterResultOrdered);
+  const percentage = statisticData(characters, filterResult);
 
-  createCards(filterResultOrdered);
+  createCards(filterResult);
   printStatistic(percentage);
 }
 
@@ -93,4 +93,3 @@ function printStatistic(result) {
   results.appendChild(content);
   document.getElementById("results").appendChild(results);
 }
-
