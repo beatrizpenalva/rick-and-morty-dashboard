@@ -39,6 +39,6 @@ export const filterData = (database, type, condition) => {
 };
 
 export const statisticData = (database, dataFiltered) => {
-  const percentage = Math.round((dataFiltered.length * 100) / database.length);
+  const percentage = ((dataFiltered.length * 100) / database.length).toFixed(2);
   return percentage;
 };
