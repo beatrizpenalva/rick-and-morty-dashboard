@@ -24,12 +24,12 @@ export const sortCharacters = (database, condition) => {
   }
 };
 
-export const searchByLocation = (database, condition) => {
+export const searchByName = (database, condition) => {
   if (!condition) return database;
-  const filterLocation = database.filter((item) =>
-    item.location.name.toUpperCase().includes(condition.toUpperCase())
+  const filterByName = database.filter((item) =>
+    item.name.toUpperCase().includes(condition.toUpperCase())
   );
-  return filterLocation;
+  return filterByName;
 };
 
 export const filterData = (database, type, condition) => {

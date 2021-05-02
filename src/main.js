@@ -1,6 +1,6 @@
 import {
   sortCharacters,
-  searchByLocation,
+  searchByName,
   statisticData,
   filterData,
 } from "./data.js";
@@ -14,6 +14,8 @@ const selectStatus = document.getElementById("status");
 const selectSpecies = document.getElementById("species");
 const searchOption = document.getElementById("search");
 const selectSort = document.getElementById("order");
+const clearButton = document.getElementById("clear");
+const statisticInfo = document.getElementById("results");
 
 window.onload = createCards(characters);
 selectGender.addEventListener("change", getAllFilters);
@@ -21,9 +23,10 @@ selectStatus.addEventListener("change", getAllFilters);
 selectSpecies.addEventListener("change", getAllFilters);
 selectSort.addEventListener("change", getAllFilters);
 searchOption.addEventListener("keypress", getAllFilters);
+clearButton.addEventListener("click", clearFilters);
 
 function createCards(data) {
-  document.getElementById("results").innerHTML = "";
+  statisticInfo.innerHTML = "";
   let printCards = "";
 
   for (let item of data) {
@@ -76,7 +79,7 @@ function getAllFilters() {
   filterResult = filterData(filterResult, "gender", selectGender.value);
   filterResult = filterData(filterResult, "status", selectStatus.value);
   filterResult = filterData(filterResult, "species", selectSpecies.value);
-  filterResult = searchByLocation(filterResult, searchOption.value);
+  filterResult = searchByName(filterResult, searchOption.value);
   filterResult = sortCharacters(filterResult, selectSort.value);
 
   const percentage = statisticData(characters, filterResult);
@@ -91,5 +94,31 @@ function printStatistic(result) {
     `${result}% of characters have these characteristics`
   );
   results.appendChild(content);
-  document.getElementById("results").appendChild(results);
+  statisticInfo.appendChild(results);
 }
+
+function clearFilters() {
+  selectGender.value = "";
+  selectStatus.value = "";
+  selectSpecies.value = "";
+  searchOption.value = "";
+  selectSort.value = "";
+  statisticInfo.innerHTML = "";
+
+  createCards(characters);
+}
+
+// const requestCharacters = async () => {
+//   let allCharacters = []
+//   for(let i = 0; i < 35; i++) {
+//     console.log(i)
+//     await fetch(`https://rickandmortyapi.com/api/character/?page=${i}`)
+//     .then((response) => response.json())
+//     .then((json) => allCharacters.concat(json.results))
+//     .catch(console.log("deu ruim"))
+//   }
+
+//   console.log(allCharacters)
+// };
+
+// window.onload = requestCharacters();
