@@ -1,29 +1,31 @@
 export const sortCharacters = (database, condition) => {
-  if (condition === "episodes") {
-    const orderNumberOfEpisodes = database.sort(function (a, b) {
-      if (a.episode.length > b.episode.length) return -1;
-      if (a.episode.length < b.episode.length) return 1;
-      return 0;
-    });
+  if (!condition) return database;
 
-    return orderNumberOfEpisodes;
-  } else {
+  if(condition === "az" || condition === "za") {
     const orderAZ = database.sort(function (a, b) {
       if (a.name.toUpperCase() < b.name.toUpperCase()) return -1;
       if (a.name.toUpperCase() > b.name.toUpperCase()) return 1;
       return 0;
     });
 
-    if (condition === "az") {
-      return orderAZ;
-    } else {
-      return orderAZ.reverse();
-    }
+    if(condition === "az") return orderAZ;
+    
+    return orderAZ.reverse();
+  }
+  else {
+    const orderNumberOfEpisodes = database.sort(function (a, b) {
+      if (a.episode.length > b.episode.length) return -1;
+      if (a.episode.length < b.episode.length) return 1;
+      return 0;
+    });
+
+    if(condition ==="highest-fewer") return orderNumberOfEpisodes;
+    return orderNumberOfEpisodes.reverse();
   }
 };
 
 export const searchByLocation = (database, condition) => {
-  if (!condition) return database
+  if (!condition) return database;
   const filterLocation = database.filter((item) =>
     item.location.name.toUpperCase().includes(condition.toUpperCase())
   );
@@ -31,7 +33,7 @@ export const searchByLocation = (database, condition) => {
 };
 
 export const filterData = (database, type, condition) => {
-  if(!condition) return database
+  if (!condition) return database;
   const filterResult = database.filter((item) => item[type] === condition);
   return filterResult;
 };

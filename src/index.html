@@ -17,21 +17,25 @@
       <input type="text" id="search" placeholder="Search by location">
     </section>
   </header>
+
   <main id="root">
     <section class="filters">
-      <select class="select" id="order" label="Order">
-        <option selected disabled value="">Order</option>
-        <option value="az">A-Z</option>
-        <option value="za">Z-A</option>
-        <option value="episodes">Number of episodes</option>
+      <select class="select" id="order">
+        <option selected disabled value="">Sorty by:</option>
+        <option value="az">A - Z</option>
+        <option value="za">Z - A</option>
+        <option value="highest-fewer">Highest number of episodes</option>
+        <option value="fewer-highest">Fewer number of episodes</option>
       </select>
-      <select class="select" id="status" label="Status">
+
+      <select class="select" id="status">
         <option selected disabled value="">Status</option>
         <option value="Alive">Alive</option>
         <option value="Dead">Dead</option>
         <option value="Unknown">Unknown</option>
       </select>
-      <select class="select" id="species" label="Species">
+
+      <select class="select" id="species">
         <option selected disabled value="">Species</option>
         <option value="Alien">Alien</option>
         <option value="Animal">Animal</option>
@@ -46,7 +50,8 @@
         <option value="Unknown">Unknown</option>
         <option value="Vampire">Vampire</option>
       </select>
-      <select class="select" id="gender" label="Gender">
+
+      <select class="select" id="gender">
         <option selected disabled value="">Gender</option>
         <option value="Female">Female</option>
         <option value="Genderless">Genderless</option>
@@ -54,12 +59,15 @@
         <option value="Unknown">Unknown</option>
       </select>
     </section> 
+
     <section id="results" class="results"></section> 
     <section class="cardArea" id="cardArea"></section>
   </main>
-  <footer>Developed by <a href="https://github.com/beatrizpenalva" target="blank" title="GITHUB PROFILE">@beatrizpenalva</a> 
+
+  <footer>
+    Developed by <a href="https://github.com/beatrizpenalva" target="blank" title="GITHUB PROFILE">@beatrizpenalva</a> 
     | Find me on <a href="https://www.linkedin.com/in/beatrizpenalva/" target="blank" title="LINKEDIN PROFILE">Linkedin </a>
-   </footer>
+  </footer>
   <script src="main.js" type="module"></script>
 </body>
 </html>

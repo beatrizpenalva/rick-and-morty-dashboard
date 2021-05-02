@@ -77,7 +77,7 @@ function getAllFilters() {
   filterResult = filterData(filterResult, "status", selectStatus.value);
   filterResult = filterData(filterResult, "species", selectSpecies.value);
   filterResult = searchByLocation(filterResult, searchOption.value);
-  filterResult =  sortCharacters(filterResult, selectSort.value);
+  filterResult = sortCharacters(filterResult, selectSort.value);
 
   const percentage = statisticData(characters, filterResult);
 
