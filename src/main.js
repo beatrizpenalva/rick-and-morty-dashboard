@@ -19,8 +19,8 @@ window.onload = createCards(characters);
 selectGender.addEventListener("change", getAllFilters);
 selectStatus.addEventListener("change", getAllFilters);
 selectSpecies.addEventListener("change", getAllFilters);
+selectSort.addEventListener("change", getAllFilters);
 searchOption.addEventListener("keypress", getFilterBySearch);
-selectSort.addEventListener("change", getSort);
 
 function createCards(data) {
   document.getElementById("results").innerHTML = "";
@@ -77,8 +77,10 @@ function getAllFilters() {
   const filterByStatus = selectStatus.value !== "Status" ? filterData(filterByGender, "status", selectStatus.value) : filterByGender;
   const filterBySpecies = selectSpecies.value !== "Species" ? filterData(filterByStatus, "species", selectSpecies.value) : filterByStatus;
 
-  let filterResult = filterBySpecies;
+
+  let filterResult = sortByAlphabeticOrder(filterBySpecies, selectSort.value);
   let percentage = statisticData(characters, filterResult);
+
 
   createCards(filterResult);
   printStatistic(percentage);
@@ -96,9 +98,4 @@ function printStatistic(result) {
 function getFilterBySearch() {
   const filterResult = searchByLocation(characters, getSearchOption.value);
   createCards(filterResult);
-}
-
-function getSort() {
-  const sortResult = sortByAlphabeticOrder(characters, selectSort.value);
-  createCards(sortResult);
 }
