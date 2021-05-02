@@ -1,20 +1,35 @@
-import {sortByAlphabeticOrder, searchByLocation, statisticData, filterData} from './data.js';
-import data from './data/rickandmorty/rickandmorty.js';
-import dataEpisode from './data/rickandmorty/rickandmortyepisodes.js';
+import {
+  sortByAlphabeticOrder,
+  searchByLocation,
+  statisticData,
+  filterData,
+} from "./data.js";
+import data from "./data/rickandmorty/rickandmorty.js";
+import dataEpisode from "./data/rickandmorty/rickandmortyepisodes.js";
+
 const characters = data.results;
 const getEpisodes = dataEpisode.episodesList;
+const selectGender = document.getElementById("gender");
+const selectStatus = document.getElementById("status");
+const selectSpecies = document.getElementById("species");
+const searchOption = document.getElementById("search");
+const selectSort = document.getElementById("order");
+
 window.onload = createCards(characters);
-document.getElementById("order").addEventListener("change", getSort);
-document.getElementById("search").addEventListener("keypress", getSearch);
-document.getElementById("gender").addEventListener("change", getGender);
-document.getElementById("status").addEventListener("change", getStatus);
-document.getElementById("species").addEventListener("change", getSpecies);
+selectGender.addEventListener("change", getAllFilters);
+selectStatus.addEventListener("change", getAllFilters);
+selectSpecies.addEventListener("change", getAllFilters);
+searchOption.addEventListener("keypress", getFilterBySearch);
+selectSort.addEventListener("change", getSort);
+
 function createCards(data) {
   document.getElementById("results").innerHTML = "";
   let printCards = "";
+
   for (let item of data) {
-    let firstEpisode = (item.episode[0]).substr(40, 39);
+    let firstEpisode = item.episode[0].substr(40, 39);
     const episodeIndex = firstEpisode - 1;
+
     printCards += `
       <div class="flip">
         <div class="card">
@@ -51,44 +66,39 @@ function createCards(data) {
             </div>  
           </div>        
         </div>
-      </div>`
+      </div>`;
   }
+
   document.getElementById("cardArea").innerHTML = printCards;
 }
-function getSort() {
-  const orderOption = document.getElementById("order").value;
-  const resultOrder = sortByAlphabeticOrder(characters, orderOption);
-  createCards(resultOrder);
+
+function getAllFilters() {
+  const filterByGender = selectGender.value !== "Gender" ? filterData(characters, "gender", selectGender.value) : characters;
+  const filterByStatus = selectStatus.value !== "Status" ? filterData(filterByGender, "status", selectStatus.value) : filterByGender;
+  const filterBySpecies = selectSpecies.value !== "Species" ? filterData(filterByStatus, "species", selectSpecies.value) : filterByStatus;
+
+  let filterResult = filterBySpecies;
+  let percentage = statisticData(characters, filterResult);
+
+  createCards(filterResult);
+  printStatistic(percentage);
 }
-function getSearch() {
-  const searchOption = document.getElementById("search").value;
-  const resultSearch = searchByLocation(characters, searchOption);
-  createCards(resultSearch);
-}
-function getGender() {
-  const gender = document.getElementById("gender").value;
-  const resultFilter = filterData(characters, "gender", gender);
-  const percentage = statisticData(characters, resultFilter);
-  createCards(resultFilter);
-  printStatistic (percentage, gender);
-}
-function getStatus() {
-  const status = document.getElementById("status").value;
-  const resultFilter = filterData(characters, "status", status);
-  const percentage = statisticData(characters, resultFilter);
-  createCards(resultFilter);
-  printStatistic (percentage, status);
-}
-function getSpecies() {
-  const species = document.getElementById("species").value;
-  const resultFilter = filterData(characters, "species", species);
-  const percentage = statisticData(characters, resultFilter);
-  createCards(resultFilter);
-  printStatistic (percentage, species);
-}
-function printStatistic(result, filter) {
+
+function printStatistic(result) {
   const results = document.createElement("p");
-  const content = document.createTextNode(`${result}% of the characters are ${filter.toLowerCase()}`);
+  const content = document.createTextNode(
+    `${result}% of characters have these characteristics`
+  );
   results.appendChild(content);
   document.getElementById("results").appendChild(results);
+}
+
+function getFilterBySearch() {
+  const filterResult = searchByLocation(characters, getSearchOption.value);
+  createCards(filterResult);
+}
+
+function getSort() {
+  const sortResult = sortByAlphabeticOrder(characters, selectSort.value);
+  createCards(sortResult);
 }
