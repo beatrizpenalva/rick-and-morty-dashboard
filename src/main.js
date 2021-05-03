@@ -82,10 +82,10 @@ function getAllFilters() {
   filterResult = searchByName(filterResult, searchOption.value);
   filterResult = sortCharacters(filterResult, selectSort.value);
 
-  if(!filterResult) {
-    statisticInfo.innerHTML = "Sorry, there is no character with these characteristics. Please, try with other filters.";
-  }
-  else {
+  if (!filterResult) {
+    statisticInfo.innerHTML =
+      "Sorry, there is no character with these characteristics. Please, try with other filters.";
+  } else {
     const percentage = statisticData(characters, filterResult);
     createCards(filterResult);
     printStatistic(percentage);
@@ -112,17 +112,76 @@ function clearFilters() {
   createCards(characters);
 }
 
-// const requestCharacters = async () => {
-//   let allCharacters = []
-//   for(let i = 0; i < 35; i++) {
-//     console.log(i)
-//     await fetch(`https://rickandmortyapi.com/api/character/?page=${i}`)
+// window.onload = requestCharacters(1);
+// para cada página que passar da página mudar o valor da requisição tb
+
+// function requestCharacters(page) {
+//   fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
 //     .then((response) => response.json())
-//     .then((json) => allCharacters.concat(json.results))
-//     .catch(console.log("deu ruim"))
-//   }
+//     .then((json) => json.results) //mandar pro createCards
+//     .catch(console.log("deu ruim")); //melhorar a mensagem para o usuário
+// }
 
-//   console.log(allCharacters)
-// };
+const paginationState = {
+  page: 1,
+  perPage: 20,
+  totalPage: Math.ceil(characters.length / perPage),
+};
 
-// window.onload = requestCharacters();
+const html = {
+  get(element) {
+    return document.querySelector(element);
+  },
+};
+
+const controlsPagination = {
+  next() {
+    paginationState.page++;
+    const isLastPage = paginationState.page > paginationState.totalPage;
+    if (isLastPage) {
+      paginationState.page--;
+    }
+  },
+  prev() {
+    paginationState.page--;
+    const isFirstPage = paginationState.page < paginationState.page;
+    if (isFirstPage) {
+      paginationState.page++;
+    }
+  },
+  goTo(page) {
+    if (page < 1) page = 1;
+    paginationState.page = page;
+    if (page > paginationState.totalPage)
+      paginationState.page = paginationState.totalPage;
+  },
+  createListeners() {
+    html.get("#first").addEventListener("click", () => {
+      controlsPagination.goTo(1);
+      update();
+    });
+
+    html.get("#last").addEventListener("click", () => {
+      controlsPagination.goTo(paginationState.totalPage);
+      update();
+    });
+
+    html.get("#next").addEventListener("click", () => {
+      controlsPagination.next();
+      update();
+    });
+
+    html.get("#prev").addEventListener("click", () => {
+      controlsPagination.prev();
+      update();
+    });
+  },
+};
+
+function update() {
+  console.log(paginationState.page);
+}
+
+// function init() {
+//   controlsPagination.createListeners();
+// }
