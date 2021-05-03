@@ -24,7 +24,7 @@ The main goal was to develop a web app that allows the user to visualize, filter
 The project was developed in three weeks, using only vanilla JavaScript, HTML5 and CSS3. Also for this project, one of the acceptance criteria was to develop unit testes with minimum coverage of 70% of statements, functions, lines and branches of the src/data.js file. 
 
 <p align="center">
-  <img src="https://i.giphy.com/media/l41lI4bYmcsPJX9Go/giphy.webp"></img>
+  <img src="https://i.giphy.com/media/Qs0QEnugOy0xIsFkpD/giphy.webp"></img>
 </p>
 
 <p align="right">
@@ -38,10 +38,6 @@ The project was developed in three weeks, using only vanilla JavaScript, HTML5 a
 Rick and Morty is a cartoon about the ventures through crazy time-space travels and parallel universes starring Rick Sanchez,  a brilliant scientist, and his (not so smart) grandson, Morty Smith. (Netflix)
 
 The show has 4 seasons, 41 episodes and 671 characters until now. Besides the countless characters, they live in different places, are from multiple universes, from several species and some of them are dead (this is not a spoiler). So, that is a lot of data to assimilate and the time distance between the seasons makes it harder to remember. That said, this Dashboard was made to help fans to get information about people and not humans of Rick and Morty’s multiverse. 
-
-<p align="center">
-  <img src="https://i.giphy.com/media/Te0fMBUGLdCymh2ABc/giphy.webp"></img>
-</p>
 
 <p align="right">
   <a href="#top"> Back to the top. </a>
@@ -81,14 +77,6 @@ We use part of the [Desing Sprint](https://www.youtube.com/watch?v=aWQUSiOZ0x8&f
 📌 User story 4: *"As a user, I want a search input so I can search a character by its location".*
   - [x] User can choose if he/she wants to order the characters in alphabetic order or the other way around
   - [x] User can see the character card filtered by the name typed on the search input.
-
-With the user stories listed, the _definition of done_ to each story was:
-- [ ] Code was formatted according to the style guide
-- [ ] Code was reviewed
-- [ ] Code was refactored
-- [ ] Code has and passes in needed tests
-- [ ] The code is on the repository
-- [ ] User story was tested with, at least, 5 users, and the needed improvements identified in the usability test was incorporated.
 
 ### 🎨 User interface
 
@@ -227,6 +215,10 @@ $ git push origin my-feature
   Developed with ❤️ by <a href="https://github.com/beatrizpenalva">Beatriz Penalva</a>, find me on <a href="https://www.linkedin.com/in/beatrizpenalva/">Linkedin</a>. 👋
   <br>
   Project developed in Laboratoria <a href="https://www.laboratoria.la/">Laboratoria</a> Bootcamp.
+</p>
+
+<p align="center">
+  <img src="https://i.giphy.com/media/l41lI4bYmcsPJX9Go/giphy.webp"></img>
 </p>
 
 <p align="right">
