@@ -24,7 +24,7 @@ The main goal was to develop a web app that allows the user to visualize, filter
 The project was developed in three weeks, using only vanilla JavaScript, HTML5 and CSS3. Also for this project, one of the acceptance criteria was to develop unit testes with minimum coverage of 70% of statements, functions, lines and branches of the src/data.js file. 
 
 <p align="center">
-  <img src="https://i.giphy.com/media/Qs0QEnugOy0xIsFkpD/giphy.webp"></img>
+  <img src="https://i.giphy.com/media/l41lI4bYmcsPJX9Go/giphy.webp" alt="Rick saying Wubba lubba dub dub!"></img>
 </p>
 
 <p align="right">
@@ -54,7 +54,7 @@ We use part of the [Desing Sprint](https://www.youtube.com/watch?v=aWQUSiOZ0x8&f
 #### Protopersonas
 
 <p align="center">
-  <img src="./src/img/personas.png"></img>
+  <img src="./src/img/personas.png" alt="Protopersonas"></img>
 </p>
 
 #### User stories 
@@ -80,26 +80,83 @@ We use part of the [Desing Sprint](https://www.youtube.com/watch?v=aWQUSiOZ0x8&f
 
 ### 🎨 User interface
 
-The dashboard aesthetic was based on the cartoon's color palette, mostly on the clothes of the two main characters, and we use cards to organize the data based on the quiz results. Besides that, we incorporate user's suggestions in our interface, as use quotes and remarkable symbols of the story. 
+The dashboard aesthetic was based on the cartoon's color palette, mostly on the clothes of the two main characters, and we use cards to organize the data based on the questionnaire results. Besides that, we incorporate user's suggestions in our interface, as use quotes and remarkable symbols of the story. 
 
-The interface was conceived to be responsive since our users use more than one device to watch the series and probably will use our app to discuss with friends and family about the cartoon. We did not make a screen for tablets, because our users do not use this device, so we choose to prioritize the most used devices. 
+<p align="center">
+  <img src="./src/img/color-palette.png" alt="Color palette"></img>
+</p>
+
+To check if the colors used have good contrast for people with daltonism, the color palette was tested using the Adobe [Accessibility Tool](https://color.adobe.com/pt/create/color-accessibility). The Color blindness simulator shows what colors are in conflict, attending people with Deuteranopia, Protanopia and Tritanopia.
+
+<p align="center">
+  <img src="./src/img/color-palette-accessibility.png" alt="Color palette using the Accessibility Tool"></img>
+</p>
 
 #### Logo
-#### Color palette
+
+Escrever sobre a logo. Fonte, Rick and Morty no O. 
+Limpar filtros. Relevância na série (ordenar e informação). Acumular filtros. Mostrar mensagem se não tiver nenhum personagem com aquele filtro selecionado.
+
+* Consumir a API. Paginação.
+* Testes?
+* Página sobre
+* Página sobre episódios
+* Página sobre localizações
+* * Limpar os filtros. Limpar filtro individualmente. (FEITO)
+* Passar informações de filtro para a URL.
+* Label dos inputs.
+* Procurar por nome, (FEITO)
+
+* Filtrar por relevância na série. (FEITO)
+
+<p align="center">
+  <img src="./src/img/rick-and-morty-logo.png" alt="Example of the fonts in use on the app"></img>
+</p>
+
 #### Typography
+
+It was used two family fonts in the app, [Good people](https://www.dafont.com/good-people.font) for the logo and [Work sans](https://fonts.google.com/specimen/Work+Sans?query=work+sans) for the titles, subtitles and texts.
+
+<p align="center">
+  <img src="./src/img/typography.png" alt="Example of the fonts in use on the app"></img>
+</p>
+
 #### Prototype
-![Desktop](./src/img/desktop-prototype.png)
-![Mobilie](./src/img/mobile-prototype.png)
+
+The interface was conceived to be responsive since our users use more than one device to watch the series and probably will use our app to discuss with friends and family about the cartoon, to check the prototype file click [here](https://www.figma.com/file/vZmLB4AGII6kMaq4RPTAbG/Rick-and-Morty-Dashboard?node-id=24%3A0). We did not make a screen for tablets, because our users do not use this device, so we choose to prioritize the most used devices. 
+
+##### High fidelity desktop prototype
+
+<p align="center">
+    <img src="./src/img/doc_desktop_cipher.png" alt="Desktop prototype"></img>
+    <br>
+    🔎 Click on the image to enlarge 
+</p>
+
+##### High fidelity mobile prototype
+
+<p align="center">
+    <img src="./src/img/mobile-prototype-portal.png" alt="Mobile welcome page prototype"></img>
+    <br>
+    <img src="./src/img/mobile-prototype-main.png" alt="Mobile main page prototype"></img>
+    <br>
+    🔎 Click on the image to enlarge 
+</p>
 
 ### 🕵️‍♀️ Usability test
+
+The User Experience was focused on being an intuitive and practical tool, in that way, the user will spend the minimum time using the product. But to improve the app usability it was necessary to apply tests and the feedback was:
 &nbsp;
 ❌ 
 &nbsp;
 ✔️ 
 
 ### 🚧 Future implementations
- - [ ] 
- - [ ] 
+
+ - [ ] Make it clear that the secret key is mandatory.
+ - [ ] Allow the user to see the secret key on the cipher page.
+ - [ ] Confirm if the user really want to reset the inputs.
+ - [ ] Let the _copy_ and _clear_ buttons disabled while there is not a message to encrypt.
 
 <p align="right">
   <a href="#top"> Back to the top. </a>
@@ -218,7 +275,7 @@ $ git push origin my-feature
 </p>
 
 <p align="center">
-  <img src="https://i.giphy.com/media/l41lI4bYmcsPJX9Go/giphy.webp"></img>
+  <img src="https://i.giphy.com/media/Qs0QEnugOy0xIsFkpD/giphy.webp"  alt="Gif with Rick and Morty celebrating"></img>
 </p>
 
 <p align="right">
