@@ -94,20 +94,7 @@ To check if the colors used have good contrast for people with daltonism, the co
 
 #### Logo
 
-Escrever sobre a logo. Fonte, Rick and Morty no O. 
-Limpar filtros. Relevância na série (ordenar e informação). Acumular filtros. Mostrar mensagem se não tiver nenhum personagem com aquele filtro selecionado.
-
-* Consumir a API. Paginação.
-* Testes?
-* Página sobre
-* Página sobre episódios
-* Página sobre localizações
-* * Limpar os filtros. Limpar filtro individualmente. (FEITO)
-* Passar informações de filtro para a URL.
-* Label dos inputs.
-* Procurar por nome, (FEITO)
-
-* Filtrar por relevância na série. (FEITO)
+To create the logo it was used typography that refers to cartoon and incorporated the shadow of the two main characters in the O letter. The color is blue according to the color palette of the app's visual identity.
 
 <p align="center">
   <img src="./src/img/rick-and-morty-logo.png" alt="Example of the fonts in use on the app"></img>
@@ -128,7 +115,7 @@ The interface was conceived to be responsive since our users use more than one d
 ##### High fidelity desktop prototype
 
 <p align="center">
-    <img src="./src/img/doc_desktop_cipher.png" alt="Desktop prototype"></img>
+    <img src="./src/img/desktop-prototype.png" alt="Desktop prototype"></img>
     <br>
     🔎 Click on the image to enlarge 
 </p>
@@ -136,27 +123,37 @@ The interface was conceived to be responsive since our users use more than one d
 ##### High fidelity mobile prototype
 
 <p align="center">
-    <img src="./src/img/mobile-prototype-portal.png" alt="Mobile welcome page prototype"></img>
+    <img src="./src/img/mobile-prototype-portal.png" width="200" alt="Mobile welcome page prototype"></img>
     <br>
-    <img src="./src/img/mobile-prototype-main.png" alt="Mobile main page prototype"></img>
+    <img src="./src/img/mobile-prototype-main.png" width="200" alt="Mobile main page prototype"></img>
     <br>
     🔎 Click on the image to enlarge 
 </p>
 
 ### 🕵️‍♀️ Usability test
 
-The User Experience was focused on being an intuitive and practical tool, in that way, the user will spend the minimum time using the product. But to improve the app usability it was necessary to apply tests and the feedback was:
+It was conducted usability tests during the app development, the feedback was:
+
 &nbsp;
-❌ 
+❌ It was not possible to cross or clean filters.
 &nbsp;
-✔️ 
+✔️ The user can cross filters and sort, also can clear filters individually or all at the same time. 
+
+&nbsp;
+❌ It is not possible to know the relevance of each character in the cartoon.
+&nbsp;
+✔️ The user can order cards by the number of episodes that the characters appear.
+
+&nbsp;
+❌ The search bar only works to search characters by their location. 
+&nbsp;
+✔️ The search bar allows searching the character by name. 
 
 ### 🚧 Future implementations
 
- - [ ] Make it clear that the secret key is mandatory.
- - [ ] Allow the user to see the secret key on the cipher page.
- - [ ] Confirm if the user really want to reset the inputs.
- - [ ] Let the _copy_ and _clear_ buttons disabled while there is not a message to encrypt.
+ - [ ] Page contending info about the cartoon.
+ - [ ] Allow sharing the link with filtered character information.
+ - [ ] Show message if there is no character with that filter selected.
 
 <p align="right">
   <a href="#top"> Back to the top. </a>
