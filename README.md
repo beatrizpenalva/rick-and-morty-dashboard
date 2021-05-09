@@ -123,9 +123,8 @@ The interface was conceived to be responsive since our users use more than one d
 ##### High fidelity mobile prototype
 
 <p align="center">
-    <img src="./src/img/mobile-prototype-portal.png" width="200" alt="Mobile welcome page prototype"></img>
-    <br>
-    <img src="./src/img/mobile-prototype-main.png" width="200" alt="Mobile main page prototype"></img>
+    <img src="./src/img/mobile-prototype-portal.png" alt="Mobile welcome page prototype"></img>
+    <img src="./src/img/mobile-prototype-main.png" alt="Mobile main page prototype"></img>
     <br>
     🔎 Click on the image to enlarge 
 </p>
@@ -136,16 +135,19 @@ It was conducted usability tests during the app development, the feedback was:
 
 &nbsp;
 ❌ It was not possible to cross or clean filters.
+
 &nbsp;
 ✔️ The user can cross filters and sort, also can clear filters individually or all at the same time. 
 
 &nbsp;
 ❌ It is not possible to know the relevance of each character in the cartoon.
+
 &nbsp;
 ✔️ The user can order cards by the number of episodes that the characters appear.
 
 &nbsp;
 ❌ The search bar only works to search characters by their location. 
+
 &nbsp;
 ✔️ The search bar allows searching the character by name. 
 
