@@ -180,7 +180,8 @@ It was conducted usability tests during the app development, the feedback was:
 |  ├── data 
 |  |  └── rickandmorty
 |  |     ├── rickandmorty.js
-|  |     └── rickandmorty.json
+|  |     ├── rickandmorty.json
+|  |     └── rickandmortyepisodes.js
 |  ├── main.js  
 |  ├── data.js
 |  ├── index.html
