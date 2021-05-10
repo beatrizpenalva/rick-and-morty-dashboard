@@ -21,7 +21,7 @@
 
 The main goal was to develop a web app that allows the user to visualize, filter and sort data about the cartoon Rick and Morty. Besides that, it was necessary to make calculus with the data, as medium values, maximum and minimum values, etc. 
 
-The project was developed in three weeks, using only vanilla JavaScript, HTML5 and CSS3. Also for this project, one of the acceptance criteria was to develop unit testes with minimum coverage of 70% of statements, functions, lines and branches of the src/data.js file. 
+The project was developed in three weeks, using only vanilla JavaScript, HTML5 and CSS3. Also for this project, one of the acceptance criteria was to develop unit testes with minimum coverage of 70% of statements, functions, lines and branches of the src/data.js file. To know more about the challenge click [here](https://github.com/Laboratoria/SAP005-data-lovers).
 
 <p align="center">
   <img src="https://i.giphy.com/media/l41lI4bYmcsPJX9Go/giphy.webp" alt="Rick saying Wubba lubba dub dub!"></img>
