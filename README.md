@@ -110,7 +110,7 @@ It was used two family fonts in the app, [Good people](https://www.dafont.com/go
 
 #### Prototype
 
-The interface was conceived to be responsive since our users use more than one device to watch the series and probably will use our app to discuss with friends and family about the cartoon, to check the prototype file click [here](https://www.figma.com/file/vZmLB4AGII6kMaq4RPTAbG/Rick-and-Morty-Dashboard?node-id=24%3A0). We did not make a screen for tablets, because our users do not use this device, so we choose to prioritize the most used devices. 
+The interface was conceived to be responsive since our users use more than one device to watch the series and probably will use our app to discuss with friends and family about the cartoon, to check the prototype file click [here](https://www.figma.com/file/67H6oBRw0TqcV3gYmzqInr/GitHub-Projects?node-id=459%3A8). We did not make a screen for tablets, because our users do not use this device, so we choose to prioritize the most used devices. 
 
 ##### High fidelity desktop prototype
 
